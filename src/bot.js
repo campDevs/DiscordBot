@@ -70,26 +70,6 @@ client.on('message', async msg => {
     msg.reply('pong')
   }
 
-  const playCommand = `${config.prefix}play`
-  if (msg.content.startsWith(playCommand)) {
-    const [_, song] = parseArgs(msg.content, playCommand.length)
-    if (msg.channel.type !== 'text') return
-    const { voiceChannel } = msg.member
-
-    if (!voiceChannel) {
-        return msg.reply('You must be in a voice channel for me to join.')
-    }
-
-    try {
-      const connection = await voiceChannel.join()
-      const stream = ytdl(encodeURI(song), { filter: 'audioonly'})
-      const dispatcher = connection.playStream(stream)
-      dispatcher.on('end', () => voiceChannel.leave())
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
   const formatCommand = `${config.prefix}format`
   if (msg.content.startsWith(formatCommand)) {
     const [lang, ...code] = parseArgs(msg.content, formatCommand)
