@@ -1,0 +1,28 @@
+{
+  "name": "fcc-discord-bot",
+  "version": "0.1.0",
+  "description": "discord bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glynnw/FCC-Discord-Bot.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glynnw/FCC-Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/glynnw/FCC-Discord-Bot#readme",
+  "dependencies": {
+    "colors": "^1.2.1",
+    "discord.js": "github:discordjs/discord.js#master",
+    "discord.js-commando": "github:discordjs/Commando",
+    "dotenv": "^5.0.1",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "node-opus": "^0.2.7",
+    "ytdl-core": "^0.20.2"
+  }
+}
