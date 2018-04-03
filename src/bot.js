@@ -2,7 +2,6 @@ require('dotenv').config()
 // const Discord = require('discord.js')
 const config = require('./config.json')
 const data = require('./data.json')
-const ytdl = require('ytdl-core')
 const colors = require('colors/safe')
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');

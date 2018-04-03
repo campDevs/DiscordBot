@@ -1,4 +1,6 @@
 const {Command} = require('discord.js-commando')
+const ytdl = require('ytdl-core')
+
 module.exports = class PlayCommand extends Command {
   constructor(client) {
     super(client, {
