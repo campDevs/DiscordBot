@@ -7,7 +7,7 @@ const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
 
 const client = new CommandoClient({
-  commandPrefix: '/',
+  commandPrefix: config.prefix,
   owner: '109163410825986048',
   disableEveryone: true
 })
@@ -74,23 +74,6 @@ client.on('message', async msg => {
 
   if (msg.content.startsWith("!roll")) {
     msg.channel.send("https://youtu.be/dQw4w9WgXcQ")
-  }
-
-  if (msg.content.startsWith("!about")) {
-    try {
-      const message = await msg.channel.send(`
-      Horrorhaku Bot!
-
-      By horrorvacui
-      `)
-      message.react("🤘")
-    } catch(error) {
-      logError(error)
-    }
-  }
-
-  if (msg.content.startsWith("!question")) {
-    msg.channel.send("How many fingers am I holding up?")
   }
 
   if (msg.content.startsWith("!brick")) {
