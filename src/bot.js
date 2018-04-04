@@ -20,7 +20,9 @@ client.registry
     ["assistants", "Commands to assist the bot overlord(s)"]
   ])
   .registerDefaultGroups()
-  .registerDefaultCommands()
+  .registerDefaultCommands({
+    eval: false
+  })
   .registerCommandsIn(path.join(__dirname, 'commands'))
 
 colors.setTheme({
