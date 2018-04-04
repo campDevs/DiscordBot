@@ -17,7 +17,8 @@ client.registry
   .registerGroups([
     ["music", "Music related commands"],
     ["code", "Code related commands"],
-    ["assistants", "Commands to assist the bot overlord(s)"]
+    ["assistants", "Commands to assist the bot overlord(s)"],
+    ["humor", "Bot's humor processing unit"]
   ])
   .registerDefaultGroups()
   .registerDefaultCommands({
@@ -72,10 +73,6 @@ client.on('message', async msg => {
   if (Math.random() <= INSULT_FREQUENCY) {
     const insultNum = getRandomInt(0, data.insults.length)
     msg.reply(data.insults[insultNum].replace("%U", msg.author.username))
-  }
-
-  if (msg.content.startsWith("!roll")) {
-    msg.channel.send("https://youtu.be/dQw4w9WgXcQ")
   }
 
   if (msg.content.startsWith("!brick")) {
