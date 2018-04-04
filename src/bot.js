@@ -17,6 +17,7 @@ client.registry
   .registerGroups([
     ["music", "Music related commands"],
     ["code", "Code related commands"],
+    ["assistants", "Commands to assist the bot overlord(s)"]
   ])
   .registerDefaultGroups()
   .registerDefaultCommands()
@@ -69,12 +70,6 @@ client.on('message', async msg => {
   if (Math.random() <= INSULT_FREQUENCY) {
     const insultNum = getRandomInt(0, data.insults.length)
     msg.reply(data.insults[insultNum].replace("%U", msg.author.username))
-  }
-
-  const lmgtfyCommand = `${config.prefix}lmgtfy`
-  if (msg.content.startsWith(lmgtfyCommand)) {
-    const query = msg.content.slice(formatCommand.length + 1)
-    msg.reply(`http://lmgtfy.com/?q=${encodeURIComponent(query)}`)
   }
 
   if (msg.content.startsWith("!roll")) {
