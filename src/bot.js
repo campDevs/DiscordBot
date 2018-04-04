@@ -75,10 +75,6 @@ client.on('message', async msg => {
     msg.reply(data.insults[insultNum].replace("%U", msg.author.username))
   }
 
-  if (msg.content.startsWith("!brick")) {
-    msg.channel.send('https://youtu.be/7pdWAcK6Eh8')
-  }
-
   if (msg.content.startsWith("!sexypic")) {
     // msg.channel.sendEmbed()
     msg.channel.send({
