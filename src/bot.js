@@ -49,7 +49,7 @@ client.on('ready', () => {
   | '###
   '----'  
   Connected as: ${client.user.tag}!`))
-  client.user.setActivity("Strip poker")
+  client.user.setActivity("Barbie Adventures")
 })
 
 client.on('guildBanAdd', member => {
