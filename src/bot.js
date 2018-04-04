@@ -15,7 +15,8 @@ const client = new CommandoClient({
 client.registry
   .registerDefaultTypes()
   .registerGroups([
-    ['music', 'Music related commands']
+    ["music", "Music related commands"],
+    ["code", "Code related commands"],
   ])
   .registerDefaultGroups()
   .registerDefaultCommands()
@@ -63,33 +64,6 @@ client.on('message', async msg => {
       msg.react("🤖")
     }
     return
-  }
-
-  if (msg.content.startsWith(`${config.prefix}ping`)) {
-    msg.reply('pong')
-  }
-
-  const formatCommand = `${config.prefix}format`
-  if (msg.content.startsWith(formatCommand)) {
-    const [lang, ...code] = parseArgs(msg.content, formatCommand)
-    msg.reply(`\`\`\`${lang}\n${code.join(" ")}\n\`\`\``)
-
-    try {
-      await msg.delete()
-    } catch(err) {
-      console.error(err)
-    }
-  }
-
-  const idMeCommand = `${config.prefix}idme`
-  if (msg.content.startsWith(idMeCommand)) {
-    client.users.get(msg.author.id).send(msg.author.id)
-
-    try {
-      await msg.delete()
-    } catch (error) {
-      console.error(error)
-    }
   }
 
   if (Math.random() <= INSULT_FREQUENCY) {

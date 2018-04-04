@@ -30,7 +30,7 @@ module.exports = class PlayCommand extends Command {
     try {
       const connection = await voiceChannel.join()
       const stream = ytdl(encodeURI(url), { filter: 'audioonly'})
-      const dispatcher = connection.playStream(stream)
+      const dispatcher = connection.play(stream)
       dispatcher.on('end', () => voiceChannel.leave())
     } catch (error) {
       console.error(error)
