@@ -74,20 +74,6 @@ client.on('message', async msg => {
     const insultNum = getRandomInt(0, data.insults.length)
     msg.reply(data.insults[insultNum].replace("%U", msg.author.username))
   }
-
-  if (msg.content.startsWith("!sexypic")) {
-    // msg.channel.sendEmbed()
-    msg.channel.send({
-      "embed":{
-        title: "Robot Danceoff",
-        color: 0xf442ce,
-        author: { name: client.user.username, icon_url: client.user.avatarURL },
-        image: {
-          url: "http://i.imgur.com/wDgO8up.gif"
-        }
-      }
-    })
-  }
 })
 
 // From MDN Math.random
