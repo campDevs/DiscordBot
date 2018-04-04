@@ -6,12 +6,22 @@ const colors = require('colors/safe')
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
 
+const INSULT_FREQUENCY = 0.1
+
+colors.setTheme({
+  warn: "yello",
+  error: "red",
+  debug: "blue",
+  info: "green",
+  data: "grey",
+  help: "magenta"
+})
+
 const client = new CommandoClient({
   commandPrefix: config.prefix,
   owner: '109163410825986048',
   disableEveryone: true
 })
-
 client.registry
   .registerDefaultTypes()
   .registerGroups([
@@ -26,21 +36,9 @@ client.registry
   })
   .registerCommandsIn(path.join(__dirname, 'commands'))
 
-colors.setTheme({
-  warn: "yello",
-  error: "red",
-  debug: "blue",
-  info: "green",
-  data: "grey",
-  help: "magenta"
-})
-
-const INSULT_FREQUENCY = 0.1
-
-client.on("error", logError)
-client.on("warn", logWarning)
-client.on("debug", logDbg)
-
+client.on("error", error => console.error(colors.error(error)))
+client.on("warn", warning => console.warn(colors.warn(warning)))
+client.on("debug", dbgMsg => console.debug(colors.debug(dbgMsg)))
 client.on('ready', () => {
   console.log(colors.america(`
   Horrorhaku Bot
@@ -54,12 +52,6 @@ client.on('ready', () => {
   Connected as: ${client.user.tag}!`))
   client.user.setActivity("Barbie Adventures")
 })
-
-client.on('guildBanAdd', member => {
-  console.log(member)
-  // client.channels.forEach( channel => channel.send(`Ohh snap! ${member} was banned!`))
-})
-
 client.on('message', async msg => {
   if (msg.author.bot) {
     if (msg.author.id !== client.user.id && Math.random() <= 0.1) {
@@ -82,25 +74,5 @@ function getRandomInt(min, max) {
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min)) + min
 }
-
-function parseArgs(msgContent, command) {
-  return msgContent.slice(command.length).trim().split(" ")
-}
-
-function logError(error) {
-  console.error(colors.error(error))
-}
-
-function logWarning(warning) {
-  console.warn(colors.warn(warning))
-}
-
-function logDbg(dbgMsg) {
-  console.debug(colors.debug(dbgMsg))
-}
-
-client.on('guildBanAdd', member => {
-  console.log("someone got banned")
-})
 
 client.login(process.env.TOKEN)
