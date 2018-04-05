@@ -17,11 +17,13 @@
   },
   "homepage": "https://github.com/glynnw/FCC-Discord-Bot#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "colors": "^1.2.1",
     "discord.js": "github:discordjs/discord.js#master",
     "discord.js-commando": "github:discordjs/Commando",
     "dotenv": "^5.0.1",
     "ffmpeg-binaries": "^3.2.2-3",
+    "node-fetch": "^2.1.2",
     "node-opus": "^0.2.7",
     "ytdl-core": "^0.20.2"
   }
