@@ -1,5 +1,4 @@
 require('dotenv').config()
-// const Discord = require('discord.js')
 const config = require('./config.json')
 const data = require('./data.json')
 const colors = require('colors/safe')
@@ -64,11 +63,6 @@ client.on('message', async msg => {
     }
     return
   }
-
-  // if (Math.random() <= INSULT_FREQUENCY) {
-  //   const insultNum = getRandomInt(0, data.insults.length)
-  //   msg.reply(data.insults[insultNum].replace("%U", msg.author.username))
-  // }
 })
 
 // From MDN Math.random
