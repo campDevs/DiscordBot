@@ -30,7 +30,8 @@ client.registry
     ["code", "Code related commands"],
     ["assistants", "Commands to assist the bot overlord(s)"],
     ["humor", "Bot's humor processing unit"],
-    ["scrapers", "Scrape or fetch data from remote sources"]
+    ["scrapers", "Scrape or data from remote sources"],
+    ["fetch", "Fetch data from websites"]
   ])
   .registerDefaultGroups()
   .registerDefaultCommands({
