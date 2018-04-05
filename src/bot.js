@@ -64,10 +64,10 @@ client.on('message', async msg => {
     return
   }
 
-  if (Math.random() <= INSULT_FREQUENCY) {
-    const insultNum = getRandomInt(0, data.insults.length)
-    msg.reply(data.insults[insultNum].replace("%U", msg.author.username))
-  }
+  // if (Math.random() <= INSULT_FREQUENCY) {
+  //   const insultNum = getRandomInt(0, data.insults.length)
+  //   msg.reply(data.insults[insultNum].replace("%U", msg.author.username))
+  // }
 })
 
 // From MDN Math.random
