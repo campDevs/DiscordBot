@@ -20,7 +20,8 @@ colors.setTheme({
 const client = new CommandoClient({
   commandPrefix: config.prefix,
   owner: '109163410825986048',
-  disableEveryone: true
+  disableEveryone: true,
+  unknownCommandResponse: false
 })
 client.registry
   .registerDefaultTypes()
