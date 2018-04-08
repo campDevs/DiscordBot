@@ -57,7 +57,9 @@ module.exports = class SubredditTopCommand extends Command {
     const subredditTitle = subreddit[0].toUpperCase() + subreddit.slice(1)
     let embed = new MessageEmbed()
       .setTitle(`${subredditTitle} Posts`)
-      .setAuthor("Reddit", "https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Reddit_logo_and_wordmark.svg/250px-Reddit_logo_and_wordmark.svg.png")
+      .setThumbnail("https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Reddit_logo_and_wordmark.svg/250px-Reddit_logo_and_wordmark.svg.png")
+      .setAuthor("Reddit")
+      .setFooter(`List requested by ${msg.author.username}`, msg.author.defaultAvatar)
       .setDescription(`${listTitle} ${limit} posts`)
       .setColor("FF2A08")
     posts.forEach(({data}) => {
