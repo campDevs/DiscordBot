@@ -2,8 +2,9 @@
   "name": "fcc-discord-bot",
   "version": "0.1.0",
   "description": "discord bot",
-  "main": "bot.js",
+  "main": "src/bot.js",
   "scripts": {
+    "start": "node src/bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
