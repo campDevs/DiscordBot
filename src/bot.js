@@ -8,7 +8,7 @@ const path = require('path');
 const INSULT_FREQUENCY = 0.1
 
 colors.setTheme({
-  warn: "yello",
+  warn: "yellow",
   error: "red",
   debug: "blue",
   info: "green",
