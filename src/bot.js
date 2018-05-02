@@ -18,7 +18,7 @@ colors.setTheme({
 
 const client = new CommandoClient({
   commandPrefix: config.prefix,
-  owner: '109163410825986048',
+  owner: process.env.BOT_OWNER,
   disableEveryone: true,
   unknownCommandResponse: false
 })
@@ -54,22 +54,15 @@ client.on('ready', () => {
   Connected as: ${client.user.tag}!`))
   client.user.setActivity("Barbie Adventures")
 })
+
+// React randomly to other bots
 client.on('message', async msg => {
   if (msg.author.bot) {
     if (msg.author.id !== client.user.id && Math.random() <= 0.1) {
-      msg.react("🖕")
-      msg.react("🔫")
       msg.react("🤖")
     }
     return
   }
 })
-
-// From MDN Math.random
-function getRandomInt(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min)) + min
-}
 
 client.login(process.env.TOKEN)
