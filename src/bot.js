@@ -1,20 +1,8 @@
 require('dotenv').config()
 const config = require('./config.json')
-const data = require('./data.json')
-const colors = require('colors/safe')
+const logger = require('./utils/logging.js')
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
-
-const INSULT_FREQUENCY = 0.1
-
-colors.setTheme({
-  warn: "yellow",
-  error: "red",
-  debug: "blue",
-  info: "green",
-  data: "grey",
-  help: "magenta"
-})
 
 const client = new CommandoClient({
   commandPrefix: config.prefix,
@@ -38,11 +26,11 @@ client.registry
   })
   .registerCommandsIn(path.join(__dirname, 'commands'))
 
-client.on("error", error => console.error(colors.error(error)))
-client.on("warn", warning => console.warn(colors.warn(warning)))
-client.on("debug", dbgMsg => console.debug(colors.debug(dbgMsg)))
+client.on("error", error => logger.error(error))
+client.on("warn", warning => logger.warn(warning))
+client.on("debug", dbgMsg => logger.debug(dbgMsg))
 client.on('ready', () => {
-  console.log(colors.america(`
+  logger.info(`
   Horrorhaku Bot
      T
    .-"-.
@@ -51,7 +39,7 @@ client.on('ready', () => {
   |  ,,,' 
   | '###
   '----'  
-  Connected as: ${client.user.tag}!`))
+  Connected as: ${client.user.tag}!`)
   client.user.setActivity("Barbie Adventures")
 })
 
