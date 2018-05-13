@@ -14,6 +14,15 @@ OWNER_ID=<Bot owner id>
 ```
 4. `npm start`
 
+
+## Helpful links
+Below are some helpful links that can help you with the production of a bot
+
+* [Discord.js Docs](https://discord.js.org/#/docs/main/stable/general/welcome)
+* [Discord.js Guide](https://anidiotsguide_old.gitbooks.io/discord-js-bot-guide/content/getting-started/the-long-version.html)
+* [Discord.js Commando Guide](https://dragonfire535.gitbooks.io/discord-js-commando-beginners-guide/content/)
+
+
 ## Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) for details
@@ -23,7 +32,7 @@ TODO
 
 ## Contributors
 
-[contributors](https://github.com/campDevs/DiscordBot/contributors)
+[Contributors](https://github.com/campDevs/DiscordBot/contributors)
 
 ## License
 
