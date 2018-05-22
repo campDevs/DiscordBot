@@ -49,25 +49,25 @@ module.exports = class PHPDocCommand extends Command {
         }
 
         urlString = urls.join('\n') 
-      } 
+      }
+      
+      if(exactMatch) {
+        return msg.embed(
+          {
+            title: pageTitle,
+            description: `The official documentation for "${query}"`,
+            url: `https://php.net/${encodedQuery}`,
+            color: 0x1e701e,
+            image: {
+              url: 'http://php.net/images/logos/new-php-logo.png'
+            }
+          }
+        )	
+      }
+  
+      return msg.say(`I did not find an exact match for "${query}". Did you mean one of these? \n${urlString}`)
     } catch(error) {
       console.error(error)
     }
-
-    if(exactMatch) {
-      return msg.embed(
-        {
-          title: pageTitle,
-          description: `The official documentation for "${query}"`,
-          url: `https://php.net/${encodedQuery}`,
-          color: 0x1e701e,
-          image: {
-            url: 'http://php.net/images/logos/new-php-logo.png'
-          }
-        }
-      )	
-    }
-
-    return msg.say(`I did not find an exact match for "${query}". Did you mean one of these? \n${urlString}`)
   }
 }
