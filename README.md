@@ -4,6 +4,8 @@
 
 This project's goal is to make a full featured, modular, self-hosted bot in javascript.
 
+[![Known Vulnerabilities](https://snyk.io/test/github/campdevs/discordbot/badge.svg?targetFile=package.json)](https://snyk.io/test/github/campdevs/discordbot?targetFile=package.json)
+
 ## Getting up and running
 1. Clone this repo
 2. `npm install`
