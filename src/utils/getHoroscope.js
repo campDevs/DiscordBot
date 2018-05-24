@@ -102,6 +102,7 @@ const updateHoroscope = () => {
 }
 
 async function Horoscope(sign) {
+  sign = sign.toLowerCase();
   if (!isSign(sign)) {
     return {
       error: `${SIGNS}`
