@@ -1,15 +1,15 @@
-require('dotenv').config();
-const config = require('./config.json');
-const logger = require('./utils/logging.js');
-const { CommandoClient } = require('discord.js-commando');
-const path = require('path');
+require('dotenv').config()
+const config = require('./config.json')
+const logger = require('./utils/logging.js')
+const { CommandoClient } = require('discord.js-commando')
+const path = require('path')
 
 const client = new CommandoClient({
   commandPrefix: config.prefix,
   owner: process.env.BOT_OWNER,
   disableEveryone: true,
   unknownCommandResponse: false,
-});
+})
 client.registry
   .registerDefaultTypes()
   .registerGroups([
@@ -23,11 +23,11 @@ client.registry
   ])
   .registerDefaultGroups()
   .registerDefaultCommands({ eval: false })
-  .registerCommandsIn(path.join(__dirname, 'commands'));
+  .registerCommandsIn(path.join(__dirname, 'commands'))
 
-client.on('error', error => logger.error(error));
-client.on('warn', warning => logger.warn(warning));
-client.on('debug', dbgMsg => logger.debug(dbgMsg));
+client.on('error', error => logger.error(error))
+client.on('warn', warning => logger.warn(warning))
+client.on('debug', dbgMsg => logger.debug(dbgMsg))
 client.on('ready', () => {
   logger.info(`
   Horrorhaku Bot
@@ -38,17 +38,17 @@ client.on('ready', () => {
   |  ,,,' 
   | '###
   '----'  
-  Connected as: ${client.user.tag}!`);
-  client.user.setActivity('Barbie Adventures');
-});
+  Connected as: ${client.user.tag}!`)
+  client.user.setActivity('Barbie Adventures')
+})
 
 // React randomly to other bots
 client.on('message', async (msg) => {
   if (msg.author.bot) {
     if (msg.author.id !== client.user.id && Math.random() <= 0.1) {
-      msg.react('🤖');
+      msg.react('🤖')
     }
   }
-});
+})
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN)
