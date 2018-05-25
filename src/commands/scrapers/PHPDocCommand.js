@@ -1,7 +1,7 @@
 const {Command} = require('discord.js-commando')
 const cheerio = require('cheerio')
 const fetch = require("node-fetch")
-
+const logger = require('../../utils/logging');
 
 module.exports = class PHPDocCommand extends Command {
   constructor(client) {
@@ -39,6 +39,8 @@ module.exports = class PHPDocCommand extends Command {
       const $ = cheerio.load(text)	
       pageTitle = $('title').html()
 
+      throw new Error('ahhh noo, say it aint so :\'(');
+
       if(/Closest matches:/.test(text)) {
         exactMatch = false
         const recommendations = $('#quickref_functions li a')
@@ -67,7 +69,7 @@ module.exports = class PHPDocCommand extends Command {
   
       return msg.say(`I did not find an exact match for "${query}". Did you mean one of these? \n${urlString}`)
     } catch(error) {
-      console.error(error)
+      logger.error(error)
     }
   }
 }
