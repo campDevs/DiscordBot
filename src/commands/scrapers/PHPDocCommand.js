@@ -39,8 +39,6 @@ module.exports = class PHPDocCommand extends Command {
       const $ = cheerio.load(text)	
       pageTitle = $('title').html()
 
-      throw new Error('ahhh noo, say it aint so :\'(');
-
       if(/Closest matches:/.test(text)) {
         exactMatch = false
         const recommendations = $('#quickref_functions li a')
