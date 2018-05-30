@@ -9,13 +9,25 @@ This project's goal is to make a full featured, modular, self-hosted bot in java
 ## Getting up and running
 1. Clone this repo
 2. `npm install`
-3. Create a `.env` file with:
+3. Create a `.env` file to store your super secret bot token:
 ```
 TOKEN=<Bot Token>
-OWNER_ID=<Bot owner id>
 ```
-4. `npm start`
+4. (Optional) configure the bot to use a prefix (default prefix is `+`) of your choice by creating a file `config.json` in the root of the bot:
+```json
+{ "prefix": ">" }
+```
+5. `npm start`
 
+## Configuration
+### Owners
+To set the bot owners add an `"owners"` property to the config file and add the owner ids:
+```json
+{
+  "prefix": ">",
+  "owners": ["1234567891234"]
+}
+```
 
 ## Helpful links
 Below are some helpful links that can help you with the production of a bot
