@@ -1,12 +1,18 @@
 require('dotenv').config()
-const config = require('./config.json')
+const file = require('fs')
 const logger = require('./utils/logging.js')
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
+const config = require('./defaults.json')
+
+// Check for config.json and override defaults
+if (file.existsSync(path.join(__dirname, '../config.json'))) {
+  Object.assign(config, require('../config.json'))
+}
 
 const client = new CommandoClient({
   commandPrefix: config.prefix,
-  owner: process.env.BOT_OWNER,
+  owner: config.owners,
   disableEveryone: true,
   unknownCommandResponse: false
 })
