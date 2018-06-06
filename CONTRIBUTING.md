@@ -10,6 +10,14 @@ OWNER_ID=<Bot owner id>
 ```
 4. `npm start`
 
+### Owners
+To set the bot owners add an `"owners"` property to the config file and add the owner ids:
+```json
+{
+  "prefix": ">",
+  "owners": ["1234567891234"]
+}
+```
 
 ## Helpful links
 Below are some helpful links that can help you with the production of a bot
