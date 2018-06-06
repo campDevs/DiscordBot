@@ -4,6 +4,10 @@
 
 [![Known Vulnerabilities](https://snyk.io/test/github/campdevs/discordbot/badge.svg?targetFile=package.json)](https://snyk.io/test/github/campdevs/discordbot?targetFile=package.json) [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/https://github.com/campDevs/DiscordBot/)
 
+**Discord Chat**
+ 
+[![Discord Chat](discord.png)](https://discordapp.com/channels/286587968179929088/430712509180149780)
+
 This project is a full featured, modular, JavaScript discord bot for freeCodeCamp's unnofficial Discord chat. 
 
 ## Contributing
