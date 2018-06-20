@@ -19,6 +19,7 @@ const client = new CommandoClient({
 client.registry
   .registerDefaultTypes()
   .registerGroups([
+    ["admin", "Admin commands"],
     ["music", "Music related commands"],
     ["code", "Code related commands"],
     ["assistants", "Commands to assist the bot overlord(s)"],
