@@ -1,4 +1,5 @@
 {
   "prefix": "+",
-  "owners": [""]
+  "owners": [""],
+  "admin_tranparency": "true"
 }
