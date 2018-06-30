@@ -26,4 +26,4 @@ Note that glitch.com will sleep after inactivity and your bot will stop respondi
 
 ## License
 
-[MIT](LICENSE.md)
+This repository is licensed under the [MIT License](LICENSE). Copyright (c) 2018 Wesley McCann.
