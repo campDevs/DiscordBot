@@ -61,4 +61,24 @@ client.on('message', async msg => {
   }
 })
 
+function sendMsgToAuditChannel(guild, msg) {
+  if (guild.channels.has(config.auditChannel)) {
+    let auditChannel = guild.channels.find("name", config.auditChannel)
+    auditChannel.sendMessage(msg)
+  }
+}
+
+client.on('guildMemberRemove', member => {
+  let guild = member.guild
+  sendMsgToAuditChannel(guild, `${member.user.username} quit or was removed from the discord guild.`)
+})
+
+client.on('guildBanRemove', (guild, user) => {
+  sendMsgToAuditChannel(guild, `${user.username} was unbanned.`)
+})
+
+client.on('guildBanAdd', (guild, user) => {
+  sendMsgToAuditChannel(guild, `${user.username} was banned.`)
+})
+
 client.login(process.env.TOKEN)

@@ -6,9 +6,11 @@ module.exports = class KickCommand extends Command {
       name: "kick",
       group: "admin",
       memberName: "kick",
-      description: "Kicks a person without deleting their messages",
+      description: "Kicks a server member",
       examples: [
-        "kick @Zac spamming smalltalk praise in channel"],
+        "kick @Zac spamming smalltalk",
+        "kick @Zac"
+      ],
       args: [
         {
           key: "member",
@@ -27,7 +29,11 @@ module.exports = class KickCommand extends Command {
     })
   }
 
-  run(msg, {member, reason}) {
-    member.kick(reason)
+  run(msg, { member, reason }) {
+    if (member.kickable) {
+      member.kick(reason)
+    } else {
+      msg.author.send(`${member} is not kickable.`)
+    }
   }
 }
