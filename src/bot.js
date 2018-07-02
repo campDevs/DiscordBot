@@ -19,6 +19,7 @@ const client = new CommandoClient({
 client.registry
   .registerDefaultTypes()
   .registerGroups([
+    ["admin", "Admin commands"],
     ["music", "Music related commands"],
     ["code", "Code related commands"],
     ["assistants", "Commands to assist the bot overlord(s)"],
@@ -58,6 +59,26 @@ client.on('message', async msg => {
     }
     return
   }
+})
+
+function sendMsgToAuditChannel(guild, msg) {
+  if (guild.channels.exists("name", config.auditChannel) && config.adminTransparency) {
+    let auditChannel = guild.channels.find("name", config.auditChannel)
+    auditChannel.send(msg)
+  }
+}
+
+client.on('guildMemberRemove', member => {
+  let guild = member.guild
+  sendMsgToAuditChannel(guild, `${member.user.username} quit or was removed from the discord guild.`)
+})
+
+client.on('guildBanRemove', (guild, user) => {
+  sendMsgToAuditChannel(guild, `${user.username} was unbanned.`)
+})
+
+client.on('guildBanAdd', (guild, user) => {
+  sendMsgToAuditChannel(guild, `${user.username} was banned.`)
 })
 
 client.login(process.env.TOKEN)
