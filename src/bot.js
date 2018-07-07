@@ -39,7 +39,7 @@ client.on("warn", warning => logger.warn(warning))
 client.on("debug", dbgMsg => logger.debug(dbgMsg))
 client.on('ready', () => {
   logger.info(`
-  Horrorhaku Bot
+  Campy the Discord Bot
      T
    .-"-.
   |  ___|
@@ -48,7 +48,7 @@ client.on('ready', () => {
   | '###
   '----'  
   Connected as: ${client.user.tag}!`)
-  client.user.setActivity("Barbie Adventures")
+  client.user.setActivity("Bot Stuff")
 })
 
 // React randomly to other bots
