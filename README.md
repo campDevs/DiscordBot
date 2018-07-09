@@ -6,11 +6,18 @@
 
 This project is a full featured, modular, JavaScript discord bot for freeCodeCamp's unnofficial Discord chat. 
 
-**Discord Chat**
- 
-[![Discord Chat](discord.png)](https://discordapp.com/channels/286587968179929088/430712509180149780)
+## What is this, exactly?
 
-## Contributing
+There exists [freeCodeCamp](https://freecodecamp.org), a site to assist people in learning website development through a series of educational challenges. Then there exists an [unofficial chat](https://discord.gg/EHueREz) to discuss that site. Finally, this repository hosts an autonomous bot for that chat for that site in order to provide useful functionality to both moderators and regular passers-by.
+
+That's *why* this code exists. It's a bot, for a Discord server, and you can use it for your Discord server too! _tada_
+
+- "admin" commands can kick and ban users; as well as delete messages. But the bot also **passively monitors** administrator actions -- all kicks and bans (even ones that don't go through the bot) are logged publicly.
+- There is certain functionality specific to freeCodeCamp, like a scraper for challenges
+- There are certain commands for assisting in performing certain tasks one might find themselves performing often enough on the server (formats your code for you in the chat, links you to this repository)
+- Additionally, there are many "fun" commands, such as a horoscope reader
+
+### Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) for details on setup and contributing. 
 
