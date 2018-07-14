@@ -9,7 +9,7 @@ module.exports = class CatusCodeCommand extends Command {
       name: "catuscode",
       group: "fetch",
       memberName: "catuscode",
-      description: "Loads an cat-related picture demonstrating various HTTP status codes",
+      description: "Loads a cat-related picture demonstrating various HTTP status codes",
       examples: ['catuscode 500', 'catuscode 301'],
       throttling: {
         usages: 1,
