@@ -1,6 +1,6 @@
 const {Command} = require('discord.js-commando')
 
-module.exports = class LmgtfyCommand extends Command {
+module.exports = class IssueCommand extends Command {
   constructor(client) {
     super(client, {
       name: "issue",
