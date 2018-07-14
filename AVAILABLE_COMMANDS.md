@@ -5,6 +5,7 @@ The following list of commands are in the order they appear in the source.
 ### Current Commands
 +  **assistants**
    +  [lmgtfy](#lmgtfy)
+   +  [issue](#issue)
 +  **code**
    +  [format](#format)
 +  **fetch**
@@ -30,7 +31,18 @@ _examples_
 +   lmgtfy js vs python  
 +   lmgtfy How do I google something?  
 
+
 [Source](https://github.com/campDevs/DiscordBot/blob/master/src/commands/assistants/LmgtfyCommand.js)  
+### issue
+Description: Link to report bugs and request features about the bot.
+
+_examples_
++  issue
++  issue Add better memes
++  issue Add better memes // Let's add better meme support. For example, none of the memes are memes.
+
+
+[Source](https://github.com/campDevs/DiscordBot/blob/master/src/commands/assistants/Issue.js) 
 ### format   
 Description: Formats code in the provided language  
 
