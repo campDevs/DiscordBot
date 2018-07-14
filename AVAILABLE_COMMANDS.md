@@ -40,7 +40,7 @@ _examples_
 
 [Source](https://github.com/campDevs/DiscordBot/blob/master/src/commands/code/FormatCommand.js)  
 ### catuscode  
-Description: Loads an cat-related picture demonstrating various HTTP status codes  
+Description: Loads a cat-related picture demonstrating various HTTP status codes  
 
 _examples_
 +  catuscode 500
