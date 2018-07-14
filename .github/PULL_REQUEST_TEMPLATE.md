@@ -1,6 +1,6 @@
 <!-- Thank you for stopping by to make a pull request -->
 
-<!-- Report security bugs to <septimus98@gmail.com>, we will review them as soon as possible -->
+<!-- Report security bugs to <septimus98@gmail.com>, we will review them as soon as possible (you might want to send your patch to that email so we can review it withoout disclosing the issue) -->
 
 # Resolves
 
