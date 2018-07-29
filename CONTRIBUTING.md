@@ -8,9 +8,10 @@
 TOKEN=<Bot Token>
 OWNER_ID=<Bot owner id>
 ```
+4. `npm start`
 
 Find out how to [find your bot token and owner user id, as well as inviting your bot to a server](#getting-your-bot-token-and-user-id)
-4. `npm start`
+
 
 ### Owners
 To set the bot owners add an `"owners"` property to the config file and add the owner ids:
@@ -56,24 +57,22 @@ If you haven't created a bot application yet, do so now:
 
 > - If you haven't yet, navigate to the [Discord Devolopers page](https://discordapp.com/developers/applications/) while logged in
 > - Hit "Create an Application"
+>
 > !["Create an Application" button image](https://cdn.discordapp.com/attachments/430070805653880832/473150670804090883/unknown.png)
 > - Fill in the relevant information (i.e. title, description). You can optionally add an icon. This can be changed later.
 
 Next, follow these steps
 
 1. Select your bot at the [Discord Devolopers page](https://discordapp.com/developers/applications/) if it isn't already selected
-2. Open the "Bot" tab
-![Navigation menu with "Bot" tab selected](https://cdn.discordapp.com/attachments/430070805653880832/473151943162724382/unknown.png)
+2. Open the "Bot" tab <div><img title="Navigation menu with 'Bot' tab selected" src="https://cdn.discordapp.com/attachments/430070805653880832/473151943162724382/unknown.png"></div>
 3. Hit "Add Bot" to create a bot user (if you haven't made a bot user yet). Tweak the username or icon if you want.
-4. Click to reveal the token, or hit the "Copy" button, in the Token section
-![Token section](https://cdn.discordapp.com/attachments/430070805653880832/473152233916203028/unknown.png)
+4. Click to reveal the token, or hit the "Copy" button, in the Token section <div><img title="Token section" src="https://cdn.discordapp.com/attachments/430070805653880832/473152233916203028/unknown.png"></div>
 
 This is your bot token. **Keep it secret**, as people who know it can take control of your bot.
 
 ## Getting your user ID
 
-1. Go to your user account settings
-![Account settings button](https://cdn.discordapp.com/attachments/430070805653880832/473152689526800384/unknown.png)
+1. Go to your user account settings<div><img title="Account settings button" src="https://cdn.discordapp.com/attachments/430070805653880832/473152689526800384/unknown.png"></div>
 2. Visit the "Appearance" tab
 3. Check the "Developer Mode" option
 4. Find a chat message by you (assuming you wish to be marked as the owner of the bot)
