@@ -90,6 +90,6 @@ If you haven't created a bot application yet, do so now:
 Next, follow these steps
 
 1. Select your bot at the [Discord Devolopers page](https://discordapp.com/developers/applications/) if it isn't already selected
-2. Open the "OAuth" tab <div><img alt="Navigation menu with OAuth tab selected src="https://cdn.discordapp.com/attachments/430070805653880832/473153670717112321/unknown.png"></div>
+2. Open the "OAuth" tab <div><img alt="Navigation menu with OAuth tab selected" src="https://cdn.discordapp.com/attachments/430070805653880832/473153670717112321/unknown.png"></div>
 3. Tick "Bot" as the only scope your bot needs <div><img alt="Menu to select scopes with only Bot selected" src="https://cdn.discordapp.com/attachments/430070805653880832/473153767886553118/unknown.png"></div>
 4. Send the generated link to someone who has permission to add bots to the server of your choosing <div><img alt="Example of a generated invitation link" src="https://cdn.discordapp.com/attachments/430070805653880832/473153996778110976/unknown.png"></div>
