@@ -42,6 +42,6 @@ module.exports = class EightBallCommand extends Command {
   }
 
   run(msg, {type}) {
-    return msg.reply(EIGHTBALL + randomElement(comebacks[type]))
+    return msg.channel.send(EIGHTBALL + randomElement(comebacks[type]))
   }
 }
