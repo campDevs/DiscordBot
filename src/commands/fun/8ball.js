@@ -22,10 +22,10 @@ module.exports = class EightBallCommand extends Command {
       name: "8ball",
       group: "fun",
       memberName: "8ball",
-      description: "Predicts the future whichever way you want (" + types + ")",
+      description: "Predicts the future with responses of several different styles: " + types,
       examples: [
-        "8ball Am I a good person?",
-        "8ball Will I win $100?" ],
+        "8ball classic Am I a good person?",
+        "8ball random Will I win $100?" ],
       args: [
         {
           key: "type",
