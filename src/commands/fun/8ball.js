@@ -20,13 +20,13 @@ module.exports = class EightBallCommand extends Command {
         "8ball Will I win $100?" ],
       args: [
         {
-          key: "query",
+          key: "type",
           prompt: "Which kind of 8ball? " + types,
           type: "string",
           validate: type => types.includes(type) || "Please select one of the kinds of 8ball listed... "
         },
         {
-          key: "fluff",
+          key: "_",
           default: "",
           prompt: "",
           type: "string"
@@ -35,7 +35,8 @@ module.exports = class EightBallCommand extends Command {
     }))
   }
 
-  run(msg, {query}) {
-    return msg.reply("🎱" + randomElement(comebacks[query]))
+  run(msg, {type}) {
+
+    return msg.reply("🎱" + randomElement(comebacks[type]))
   }
 }
