@@ -8,8 +8,6 @@ const comebacks = require("../../utils/8ball.json")
 
 comebacks.random = Object.values(comebacks).reduce((a, b) => a.concat(b), [])
 
-console.log("State of COMEBACKS: " + JSON.stringify(comebacks))
-
 const types = Object.keys(comebacks).join(", ")
 
 function randomElement(arr) {
@@ -18,7 +16,7 @@ function randomElement(arr) {
 
 module.exports = class EightBallCommand extends Command {
   constructor(client) {
-    super(client, (console.log(typeof ("Which kind of 8ball? " + types)), {
+    super(client, {
       name: "8ball",
       group: "fun",
       memberName: "8ball",
@@ -40,7 +38,7 @@ module.exports = class EightBallCommand extends Command {
           type: "string"
         }
       ]
-    }))
+    })
   }
 
   run(msg, {type}) {
