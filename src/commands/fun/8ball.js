@@ -8,7 +8,8 @@ const comebacks = require("../../utils/8ball.json")
 
 comebacks.random = Object.values(comebacks).reduce((a, b) => a.concat(b), [])
 
-const types = Object.keys(comebacks).join(", ")
+const rawTypes = Object.keys(comebacks)
+const types = rawTypes.join(", ")
 
 function randomElement(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
@@ -29,7 +30,7 @@ module.exports = class EightBallCommand extends Command {
           key: "type",
           prompt: "Which kind of 8ball? " + types,
           type: "string",
-          validate: type => types.includes(type) || "Please select one of the kinds of 8ball listed: " + types
+          validate: type => rawTypes.includes(type) || "Please select one of the kinds of 8ball listed: " + types
         },
         {
           key: "question",
