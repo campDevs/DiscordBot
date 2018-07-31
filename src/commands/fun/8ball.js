@@ -31,7 +31,7 @@ module.exports = class EightBallCommand extends Command {
           key: "type",
           prompt: "Which kind of 8ball? " + types,
           type: "string",
-          validate: type => types.includes(type) || "Please select one of the kinds of 8ball listed... "
+          validate: type => types.includes(type) || "Please select one of the kinds of 8ball listed: " + types
         },
         {
           key: "question",
