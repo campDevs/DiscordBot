@@ -2,6 +2,12 @@ const {Command} = require('discord.js-commando')
 
 const comebacks = require("../../utils/8ball.json")
 
+// We must now add a "random" type
+
+comebacks.random = Object.values(comebacks).reduce((a, b) => a.concat(b), [])
+
+console.log("State of COMEBACKS: " + JSON.stringify(comebacks))
+
 const types = Object.keys(comebacks).join(", ")
 
 function randomElement(arr) {
@@ -36,7 +42,6 @@ module.exports = class EightBallCommand extends Command {
   }
 
   run(msg, {type}) {
-
     return msg.reply("🎱" + randomElement(comebacks[type]))
   }
 }
