@@ -34,7 +34,7 @@ module.exports = class EightBallCommand extends Command {
           validate: type => types.includes(type) || "Please select one of the kinds of 8ball listed... "
         },
         {
-          key: "_",
+          key: "question",
           default: "",
           prompt: "",
           type: "string"
