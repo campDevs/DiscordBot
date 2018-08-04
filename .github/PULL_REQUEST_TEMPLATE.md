@@ -6,7 +6,7 @@
 
 <!-- Does your pull request resolve an issue? Insert that issue number where it says "XXXX" -->
 
-Resolves XXXX
+Resolves #XXXX
 
 # Changes
 
@@ -14,7 +14,7 @@ Resolves XXXX
 
 # Testing
 
-<!-- Describe which tests you performed (either manual or automatic)
+<!-- Describe which tests you performed (either manual or automatic) -->
 
 # Screenshots
 
