@@ -24,10 +24,10 @@ module.exports = class PronounRoles extends Command {
       ],
      args: [
         {
-          key: "cmd",
+          key: "command",
           prompt: "Do you want to 'add' (or 'a'); or 'remove' (or 'r') the role?",
           type: "string",
-          validate: command => ['a', 'add', 'r', 'remove'].includes(cmd)
+          validate: command => ['a', 'add', 'r', 'remove'].includes(command.toLowerCase())
         },
         {
           key: "pronoun",
@@ -38,33 +38,58 @@ module.exports = class PronounRoles extends Command {
    })
   }
 
-  run(msg, {cmd, pronoun}) {
-    // First, try to find the pronoun.
+  run(msg, {command, pronoun}) {
+    const shouldAdd = ['a', 'add'].includes(command.toLowerCase())
+    
+    // These show feedback messages (success/failiure)
+    const good = () => {
+      msg.channel.send({
+        embed: {
+          color: 0xff00, // green
+          title: `Pronoun role ${shouldAdd ? "added" : "removed"}`
+        }
+      })
+    }
+    
+    const bad = description => {
+      msg.channel.send({
+        embed: {
+          color: 0xff0000, // red
+          title: `Pronoun role not ${shouldAdd ? "added" : "removed"}`,
+          description
+        }
+      })
+    }
+    
     pronoun = pronoun.toLowerCase()
     const targetPronoun = pronounRoles.find(p => p.aliases.includes(pronoun) || p.roleName === pronoun)
 
     if(targetPronoun) {
-      // Check that this wasn't a DM
+      // Must be a guild, not a DM.
       if(msg.guild) {
         // Check that the role exists in the server (if not, this is a misconfiguration)
         const role = msg.guild.roles.find("name", targetPronoun.roleName)
 
         if(role) {
-          msg.member.addRole(role, '[bot] pronoun role requested by user').then(() => {
-            good(msg.channel, "Role added")
-          }).catch(e => {
-            console.error("Attempted to add pronoun role, but didn't have permission")
-            error(msg.channel, "Role not added", "The bot needs extra permissions to manage roles")
-          })
+          const rejected = () => {
+            console.error("Need server permission to manage roles for `permission` command")
+            bad("The bot needs extra permissions to manage roles. Contact an admin.") 
+          }
+          
+          if(shouldAdd) {
+            msg.member.addRole(role, '[bot] pronoun role requested by user').then(good).catch(rejected)
+          } else {
+            msg.member.removeRole(role, '[bot] pronoun role requested by user').then(good).catch(rejected)
+          }
         } else {
-          console.error("Attempted to add pronoun role '" + targetPronoun.roleName + "', but no such role was found in the server.")
-          error(msg.channel, "Role not added", "Due to a misconfiguration in the server, the role doesn't exist yet. An admin should add it ('" + targetPronoun.roleName + "')")
+          console.error("Pronoun role '" + targetPronoun.roleName + "' not found in server")
+          bad("The role '" + targetPronoun.roleName + "' doesn't exist in the Discord server, but is in the bot's database. Contact an admin.")
         }
       } else {
-        error(msg.channel, "Role not added", "Sorry, I can't set up roles over DM")
+        bad("Sorry, I can't set up roles over DM")
       }
     } else {
-      error(msg.channel, "Pronoun not supported", "Supported pronouns: " + pronounRoles.map(p => p.roleName).join(", ") + ". Ask an admin to add your pronoun.")
+      bad(`Supported pronouns:\n${pronounRoles.map(r => "- " + r.roleName).join("\n")}\nContact an admin to add your pronoun.`)
     }
   }
 }
