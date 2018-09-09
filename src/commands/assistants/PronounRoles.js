@@ -3,14 +3,6 @@ const pronounRoles = require('../../utils/pronouns.json')
 
 const [RED, GREEN] = [0xff0000, 0x00ff00]
 
-function error(where, title, description) {
-  where.send({embed: {color: RED, title, description}})
-}
-
-function good(where, title, description) {
-  where.send({embed: {color: GREEN, title, description}})
-}
-
 module.exports = class PronounRoles extends Command {
   constructor(client) {
     super(client, {
@@ -45,7 +37,7 @@ module.exports = class PronounRoles extends Command {
     const good = () => {
       msg.channel.send({
         embed: {
-          color: 0xff00, // green
+          color: GREEN,
           title: `Pronoun role ${shouldAdd ? "added" : "removed"}`
         }
       })
@@ -54,7 +46,7 @@ module.exports = class PronounRoles extends Command {
     const bad = description => {
       msg.channel.send({
         embed: {
-          color: 0xff0000, // red
+          color: RED,
           title: `Pronoun role not ${shouldAdd ? "added" : "removed"}`,
           description
         }
