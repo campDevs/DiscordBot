@@ -1,5 +1,5 @@
 const {Command} = require('discord.js-commando')
-const pronounRoles = require('../../utils/pronouns.json')
+const pronounRoles = require('../../pronouns.json')
 
 const [RED, GREEN] = [0xff0000, 0x00ff00]
 
