@@ -62,8 +62,8 @@ client.on('message', async msg => {
 })
 
 function sendMsgToAuditChannel(guild, msg) {
-  if (guild.channels.exists("name", config.auditChannel) && config.adminTransparency) {
-    let auditChannel = guild.channels.find("name", config.auditChannel)
+  let auditChannel = guild.channels.find("name", config.auditChannel)
+  if (auditChannel && config.adminTransparency) {
     auditChannel.send(msg)
   }
 }
