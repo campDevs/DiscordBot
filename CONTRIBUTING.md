@@ -1,30 +1,33 @@
 # Contributing
 
+## Prerequisites
+
+* [Get your bot token](#prerequisites:-get-your-bot-token)
+* [Get your user id](#prerequisites:-get-your-user-id)
+* [Get an invitation link](#prerequisites:-get-an-invitation-link)
+
+
 ## Getting up and running
-1. Clone this repo
-2. `npm install`
-3. Create a `.env` file with:
+* Clone this repo
+* `npm install`
+* Create a `.env` file with the following line:
 ```
 TOKEN=<Bot Token>
-OWNER_ID=<Bot owner id>
 ```
-4. `npm start`
+* Replace `<Bot Token>` with your bot token acquired in the prerequisite step "Get your bot token."
 
-Find out how to [find your bot token and owner user id, as well as inviting your bot to a server](#getting-your-bot-token-and-user-id)
+* Copy or rename `example_config.json` to `config.json`. Add your user id to the "owners" array.
 
-
-### Owners
-To set the bot owners add an `"owners"` property to the config file and add the owner ids:
 ```json
 {
-  "prefix": ">",
-  "owners": ["1234567891234"]
+    "owners": ["YOUR USER ID"]
 }
 ```
 
-## Helpful links
-Below are some helpful links that can help you with the production of a bot
+* `npm start`
 
+## Helpful links
+Below are some helpful links that can help you with the production of a bot:
 * [Discord.js Docs](https://discord.js.org/#/docs/main/stable/general/welcome)
 * [Discord.js Guide](https://anidiotsguide_old.gitbooks.io/discord-js-bot-guide/content/getting-started/the-long-version.html)
 * [Discord.js Commando Guide](https://dragonfire535.gitbooks.io/discord-js-commando-beginners-guide/content/)
@@ -42,54 +45,29 @@ For example,
   + Bugs
   + etc.
 
-This will help keep the issue section stay organized and help contributors understand all the problems. 
+This will help keep the issue section stay organized and help contributors understand all the problems.
 
-## Getting your bot token and user ID
+## Prerequisites: Get your bot token
+  
+- A bot token is a string used by the Discord API to authenticate users and bots.
 
-- A bot token is a string used by the Discord API to authenticate users and bots. [Find out how to get it](#getting-your-bot-token)
+> 1. Visit [Discord Devolopers page](https://discordapp.com/developers/applications/) while logged in.
+> 2. Click "Create an application". <div><img alt="'Create an Application' button image" src="https://cdn.discordapp.com/attachments/430070805653880832/473150670804090883/unknown.png"></div>
+> 3. Fill in the relevant information (i.e. title, description). You can optionally add an icon. This can be changed later.
+> 4. Open the "Bot" tab. <div><img alt="Navigation menu with 'Bot' tab selected" src="https://cdn.discordapp.com/attachments/430070805653880832/473151943162724382/unknown.png"></div>
+> 5. Click "Add Bot" to create a bot user. Change the username or icon as desired.
+> 6. In the Token section click the "Copy" button. <div><img alt="Token section" src="https://cdn.discordapp.com/attachments/430070805653880832/473152233916203028/unknown.png"></div>
+> 7. This is your bot token. **Keep it secret**, as people who know it can take control of your bot.
 
-- The `owner_id` field in the environment file is to identify who is responsible for maintaining the bot. It is a numerical "snowflake" ID used by the Discord API. [Find out how to get it](#getting-your-user-id)
+## Prerequisites: Get your user ID
 
-- The invitation link for your bot is used to invite it to servers. [Find out how to get it](#getting-an-invitation-link)
-## Getting your bot token
+- The user id is a numerical [snowflake](https://discordapp.com/developers/docs/reference#snowflakes) id used by the Discord API to identify who is responsible for maintaining the bot. [Follow these directions to get your user id](https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-).
 
-If you haven't created a bot application yet, do so now:
 
-> - If you haven't yet, navigate to the [Discord Devolopers page](https://discordapp.com/developers/applications/) while logged in
-> - Hit "Create an Application <div><img alt="'Create an Application' button image" src="https://cdn.discordapp.com/attachments/430070805653880832/473150670804090883/unknown.png"></div>
-> - Fill in the relevant information (i.e. title, description). You can optionally add an icon. This can be changed later.
+## Prerequisites: Get an invitation link
+- The invitation link for your bot is used to invite it to servers.
 
-Next, follow these steps
-
-1. Select your bot at the [Discord Devolopers page](https://discordapp.com/developers/applications/) if it isn't already selected
-2. Open the "Bot" tab <div><img alt="Navigation menu with 'Bot' tab selected" src="https://cdn.discordapp.com/attachments/430070805653880832/473151943162724382/unknown.png"></div>
-3. Hit "Add Bot" to create a bot user (if you haven't made a bot user yet). Tweak the username or icon if you want.
-4. Click to reveal the token, or hit the "Copy" button, in the Token section <div><img alt="Token section" src="https://cdn.discordapp.com/attachments/430070805653880832/473152233916203028/unknown.png"></div>
-
-This is your bot token. **Keep it secret**, as people who know it can take control of your bot.
-
-## Getting your user ID
-
-1. Go to your user account settings<div><img alt="Account settings button" src="https://cdn.discordapp.com/attachments/430070805653880832/473152689526800384/unknown.png"></div>
-2. Visit the "Appearance" tab
-3. Check the "Developer Mode" option
-4. Find a chat message by you (assuming you wish to be marked as the owner of the bot)
-5. Right click the username
-6. Select "Copy ID"
-
-The numeric user ID of that user will have been copied to your clipboard.
-
-## Getting an invitation link
-
-If you haven't created a bot application yet, do so now:
-
-> - If you haven't yet, navigate to the [Discord Devolopers page](https://discordapp.com/developers/applications/) while logged in
-> - Hit "Create an Application" <div><img alt="'Create an Application' button image" src="https://cdn.discordapp.com/attachments/430070805653880832/473150670804090883/unknown.png"></div>
-> - Fill in the relevant information (i.e. title, description). You can optionally add an icon. This can be changed later.
-
-Next, follow these steps
-
-1. Select your bot at the [Discord Devolopers page](https://discordapp.com/developers/applications/) if it isn't already selected
-2. Open the "OAuth" tab <div><img alt="Navigation menu with OAuth tab selected" src="https://cdn.discordapp.com/attachments/430070805653880832/473153670717112321/unknown.png"></div>
-3. Tick "Bot" as the only scope your bot needs <div><img alt="Menu to select scopes with only Bot selected" src="https://cdn.discordapp.com/attachments/430070805653880832/473153767886553118/unknown.png"></div>
-4. Send the generated link to someone who has permission to add bots to the server of your choosing <div><img alt="Example of a generated invitation link" src="https://cdn.discordapp.com/attachments/430070805653880832/473153996778110976/unknown.png"></div>
+> 1. Select your bot at the [Discord Devolopers page](https://discordapp.com/developers/applications/).
+> 2. Open the "OAuth" tab. <div><img alt="Navigation menu with OAuth tab selected" src="https://cdn.discordapp.com/attachments/430070805653880832/473153670717112321/unknown.png"></div>
+> 3. Tick "Bot" as the only scope your bot needs. <div><img alt="Menu to select scopes with only Bot selected" src="https://cdn.discordapp.com/attachments/430070805653880832/473153767886553118/unknown.png"></div>
+> 4. If you have a discord server, paste the link in your browser and choose a server, or [create your own discord server!](https://support.discordapp.com/hc/en-us/articles/204849977-How-do-I-create-a-server-) Otherwise, send the generated link to someone who has permission to add bots to the server of your choosing. <div><img alt="Example of a generated invitation link" src="https://cdn.discordapp.com/attachments/430070805653880832/473153996778110976/unknown.png"></div>
