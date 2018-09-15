@@ -99,13 +99,13 @@ handleField(CONFIG_FIELDS.shift())
 
 function handleField(configElement) {
   if(typeof configElement === 'undefined') {
-    // There are no more questions to answer
     console.log(jsonToString(config))
     return
   }
  
   if(configElement.onlyIf && !configElement.onlyIf(config)) {
-   return  
+    handleField(CONFIG_FIELDS.shift())
+    return
   }
 
   const mapper = mapTypes[configElement.type] || (s => s) 
@@ -157,7 +157,7 @@ function recursiveQuestion(arg, conditionFunction, cb) {
  */
 function jsonToString(obj) {
   if(Array.isArray(obj)) {
-    return obj.map(i => jsonToString(i)).join(', '.cyan)
+    return '['.magenta + obj.map(i => jsonToString(i)).join(', '.cyan) + ']'.magenta
   }
   if(typeof obj === 'string') {
     return JSON.stringify(obj).red
@@ -165,6 +165,6 @@ function jsonToString(obj) {
   if(typeof obj === 'boolean') {
     return JSON.stringify(obj).green
   }
-  return '{\n'.cyan + Object.keys(obj).map(key => '  ' + jsonToString(key).strip.cyan + ': '.cyan + jsonToString(obj[key])).join('\n') + '\n}'.cyan
+  return '{\n'.magenta + Object.keys(obj).map(key => '  ' + jsonToString(key).strip.cyan + ': '.cyan + jsonToString(obj[key])).join('\n') + '\n}'.magenta
 }
 
