@@ -178,6 +178,6 @@ function jsonToString(obj) {
   if(typeof obj === 'boolean') {
     return JSON.stringify(obj).green
   }
-  return '{\n'.magenta + Object.keys(obj).map(key => '  ' + jsonToString(key).strip.cyan + ': '.cyan + jsonToString(obj[key])).join('\n') + '\n}'.magenta
+  return '{\n'.magenta + Object.keys(obj).map(key => '  ' + jsonToString(key).strip.cyan + ': '.cyan + jsonToString(obj[key])).join(',\n'.magenta) + '\n}'.magenta
 }
 
