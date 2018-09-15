@@ -1,4 +1,6 @@
 const readline = require('readline')
+const path = require('path')
+const fs = require('fs')
 const colors = require('colors')
 
 const rl = readline.createInterface({
@@ -99,7 +101,18 @@ handleField(CONFIG_FIELDS.shift())
 
 function handleField(configElement) {
   if(typeof configElement === 'undefined') {
-    console.log(jsonToString(config))
+    const json = jsonToString(config)
+    console.log(json)
+    rl.question('Write this file to config.json in the root of the source code? '.blue + '(y/n)'.inverse + ' ', answer => {
+      if(['y', 'yes'].includes(answer.toLowerCase())) {
+        fs.writeFileSync(path.join(__dirname, '../config.json'), json.strip)
+        console.log('File written sucessfully, exiting.'.green)
+        process.exit(0)
+      } else {
+        console.log('You chose no, quiting without writing.'.red)
+        process.exit(0)
+      }
+    })
     return
   }
  
