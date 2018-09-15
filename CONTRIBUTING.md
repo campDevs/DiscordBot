@@ -16,12 +16,11 @@ TOKEN=<Bot Token>
 ```
 * Replace `<Bot Token>` with your bot token acquired in the prerequisite step "Get your bot token."
 
-* Copy or rename `example_config.json` to `config.json`. Add your user id to the "owners" array.
+* Enter the `src` directory and start the CLI, and then fill in any details. Hit enter for any question to use the default value. To set yourself as the owner of the bot, you'll need to know your user ID -- see the prerequisite step "Get your uuser id"
 
-```json
-{
-    "owners": ["YOUR USER ID"]
-}
+```bash
+cd src
+node setup
 ```
 
 * `npm start`

@@ -21,7 +21,13 @@ Thanks to [all of our Contributors](https://github.com/campDevs/DiscordBot/contr
 
 ## Deployment
 ### Glitch.com
-Click [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/https://github.com/campDevs/DiscordBot/) and add your bot's token to the `.env` file as `TOKEN=<Bot Token>`. Additionally you can add your discord id as an owner `OWNER_ID=<Discord User ID>`.
+Click [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/https://github.com/campDevs/DiscordBot/) and add your bot's token to the `.env` file as `TOKEN=<Bot Token>`. Then, you can set your bot up with our CLI.
+
+```bash
+cd src
+node setup
+```
+And follow the instructions. Hit enter for any question to use the default option.
 
 Note that glitch.com will sleep after inactivity and your bot will stop responding. You can reawaken your bot by visiting it on glitch.com.
 
