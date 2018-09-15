@@ -1,4 +1,5 @@
 const readline = require('readline')
+const colors = require('colors')
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -69,6 +70,20 @@ const mapTypes = {
 }
 
 /**
+ * How to convert the default values in defaults.json to something
+ * the user could've typed themselves. If the output is falsey,
+ * '(empty)' will be used instead.
+ *
+ * The key should be the type (as stated in CONFIG_FIELDS)
+ *
+ * The default is the identity function (s => s)
+ */
+const unmapTypes = {
+  array: s => s.join(' '),
+  boolean: s => ['NO', 'YES'][s]
+}
+
+/**
  * An object to check that an input from the user isn't malformed.
  * If it is, the user will be re-prompted. "true" means that the
  * input is NOT malformed, but is instead valid. The default is (() => true)
@@ -82,23 +97,25 @@ const validateTypes = {
 handleField(CONFIG_FIELDS.shift())
 
 function handleField(configElement) {
-  if(configElement.onlyIf && !configElement.onlyIf(config)) {
-    return
-  }
-
   if(typeof configElement === 'undefined') {
     return
   }
-
-  const mapper = mapTypes[configElement.type] || (s => s)
+ 
+  if(configElement.onlyIf && !configElement.onlyIf(config)) {
+   return  
+  }
+  
+  const mapper = mapTypes[configElement.type] || (s => s) 
   const validator = validateTypes[configElement.type] || (() => true)
   
   const help = configElement.prompt
   const helpForType = howToAnswer[configElement.type] || ''
 
-  const defaultValue = defaults[configElement.field]
+  const punctuation = configElement.type === 'boolean' ? '?' : ':'
 
-  const text = help + (': ' + '(default is ' + defaultValue + ') ' + helpForType + ' ').replace(/ +/, ' ')
+  const defaultValue = (unmapTypes[configElement.type] || (s => s))(defaults[configElement.field])
+  const coloredDefault = defaultValue ? defaultValue.green : '(empty)'.red
+  const text = help + `${punctuation} (default is ${coloredDefault}) ${helpForType.inverse} `.replace(/ +/, ' ')
 
   recursiveQuestion(text, validator, answer => {
     config[configElement.field] = mapper(answer)
