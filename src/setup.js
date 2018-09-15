@@ -71,8 +71,9 @@ const mapTypes = {
 
 /**
  * How to convert the default values in defaults.json to something
- * the user could've typed themselves. If the output is falsey,
- * '(empty)' will be used instead.
+ * the user could've typed themselves.
+ *
+ * If the output is the empty string, it will be replaced with a red '(empty)'
  *
  * The key should be the type (as stated in CONFIG_FIELDS)
  *
@@ -80,7 +81,7 @@ const mapTypes = {
  */
 const unmapTypes = {
   array: s => s.join(' '),
-  boolean: s => ['NO', 'YES'][s]
+  boolean: s => ['no', 'yes'][s]
 }
 
 /**
@@ -104,7 +105,7 @@ function handleField(configElement) {
   if(configElement.onlyIf && !configElement.onlyIf(config)) {
    return  
   }
-  
+
   const mapper = mapTypes[configElement.type] || (s => s) 
   const validator = validateTypes[configElement.type] || (() => true)
   
@@ -114,11 +115,12 @@ function handleField(configElement) {
   const punctuation = configElement.type === 'boolean' ? '?' : ':'
 
   const defaultValue = (unmapTypes[configElement.type] || (s => s))(defaults[configElement.field])
-  const coloredDefault = defaultValue ? defaultValue.green : '(empty)'.red
-  const text = help + `${punctuation} (default is ${coloredDefault}) ${helpForType.inverse} `.replace(/ +/, ' ')
+  const coloredDefault = defaultValue !== '' ? defaultValue.green : '(empty)'.red
 
-  recursiveQuestion(text, validator, answer => {
-    config[configElement.field] = mapper(answer)
+  const text = help.blue + `${punctuation} (default is ${coloredDefault}) ${helpForType.inverse} `.replace(/ +/, ' ')
+
+  recursiveQuestion(text, s => !s || validator, answer => {
+    config[configElement.field] = answer ? mapper(answer) : defaults[configElement.field]
     handleField(CONFIG_FIELDS.shift())
   })
 }
