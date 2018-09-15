@@ -114,10 +114,11 @@ function handleField(configElement) {
  */
 function recursiveQuestion(arg, conditionFunction, cb) {
   rl.question(arg, answer => {
-    if(conditionFunction()) {
+    if(conditionFunction(answer)) {
       cb(answer)
     } else {
       recursiveQuestion(...arguments)
     }
   })
 }
+
