@@ -96,7 +96,9 @@ function handleField(configElement) {
   const help = configElement.prompt
   const helpForType = howToAnswer[configElement.type] || ''
 
-  const text = help + (': ' + helpForType + ' ' + helpForType).replace(/ +/, ' ')
+  const defaultValue = defaults[configElement.field]
+
+  const text = help + (': ' + '(default is ' + defaultValue + ') ' + helpForType + ' ').replace(/ +/, ' ')
 
   recursiveQuestion(text, validator, answer => {
     config[configElement.field] = mapper(answer)
