@@ -99,6 +99,8 @@ handleField(CONFIG_FIELDS.shift())
 
 function handleField(configElement) {
   if(typeof configElement === 'undefined') {
+    // There are no more questions to answer
+    console.log(jsonToString(config))
     return
   }
  
@@ -141,5 +143,28 @@ function recursiveQuestion(arg, conditionFunction, cb) {
       recursiveQuestion(...arguments)
     }
   })
+}
+
+/**
+ * A work-in-progress function to create JSON strings that contain whitespace. The
+ * function works recursively. Do not pass it circular objects, it will
+ * not detect it and the recursive stack will overflow.
+ *
+ * @todo Handle indentation when nesting objects
+ *
+ * @param {*} obj - The object to convert to JSON
+ * @return {string} The stringified JSON
+ */
+function jsonToString(obj) {
+  if(Array.isArray(obj)) {
+    return obj.map(i => jsonToString(i)).join(', '.cyan)
+  }
+  if(typeof obj === 'string') {
+    return JSON.stringify(obj).red
+  }
+  if(typeof obj === 'boolean') {
+    return JSON.stringify(obj).green
+  }
+  return '{\n'.cyan + Object.keys(obj).map(key => '  ' + jsonToString(key).strip.cyan + ': '.cyan + jsonToString(obj[key])).join('\n') + '\n}'.cyan
 }
 
