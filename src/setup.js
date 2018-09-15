@@ -81,7 +81,7 @@ const mapTypes = {
  */
 const unmapTypes = {
   array: s => s.join(' '),
-  boolean: s => ['no', 'yes'][s]
+  boolean: s => s ? 'yes' : 'no'
 }
 
 /**
