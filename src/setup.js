@@ -104,7 +104,7 @@ function handleField(configElement) {
     const json = jsonToString(config)
     console.log(json)
     rl.question('Write this file to config.json in the root of the source code? '.blue + '(y/n)'.inverse + ' ', answer => {
-      if(['y', 'yes'].includes(answer.toLowerCase())) {
+      if(['y', 'yes', ''].includes(answer.toLowerCase())) {
         fs.writeFileSync(path.join(__dirname, '../config.json'), json.strip)
         console.log('File written sucessfully, exiting.'.green)
         process.exit(0)
