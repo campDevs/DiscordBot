@@ -20,6 +20,7 @@
 +  **assistants**
    +  [lmgtfy](#lmgtfy)
    +  [issue](#issue)
+   +  [pronoun](#pronoun)
 +  **code**
    +  [format](#format)
 +  **fetch**
@@ -119,8 +120,15 @@ _examples_
 +  issue Add better memes
 +  issue Add better memes // Let's add better meme support. For example, none of the memes are memes.
 
-
 [Source](https://github.com/campDevs/DiscordBot/blob/master/src/commands/assistants/Issue.js) 
+### pronoun
+Description: Add a role to let people know of your pronouns
+
+_examples_
++ pronoun remove him
++ pronoun add they
+
+[Source](https://github.com/campDevs/DiscordBot/blob/master/src/commands/assistants/PronounRoles.js) 
 ### format   
 Description: Formats code in the provided language  
 
