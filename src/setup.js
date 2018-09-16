@@ -61,7 +61,7 @@ const howToAnswer = {
 }
 
 /**
- * How to convert an input into the object that should be added
+ * How to convert a user input into the CLI that should be added
  * to the configuration file. The default is the identity function. (s => s)
  *
  * They key should be the type (as stated in CONFIG_FIELDS)
@@ -97,13 +97,28 @@ const validateTypes = {
   boolean: s => ['y', 'yes', 'n', 'no'].includes(s.toLowerCase())
 }
 
+/**
+ * An object to decide the punctuation to be used after the prompt.
+ * If not specified, a ':' (colon) will be used.
+ */
+const punctuationForTypes = {
+  boolean: '?'
+}
+
 handleField(CONFIG_FIELDS.shift())
 
+/**
+ * A function to handle a field in CONFIG_FIELDS.
+ * Calls itself on CONFIG_FIELDS.shift()
+ *
+ * @param {Object|undefined} configElement - the configuration element (that can be found in CONFIG_FIELDS) or undefined to indicate save prompt
+ */
 function handleField(configElement) {
   if(typeof configElement === 'undefined') {
     const json = jsonToString(config)
     console.log(json)
-    rl.question('Write this file to config.json in the root of the source code? '.blue + '(y/n)'.inverse + ' ', answer => {
+    const question = generateQuestion('Save file locally', '(y/n)', '?', 'yes')
+    recursiveQuestion(question, validateTypes.boolean, answer => {
       if(['y', 'yes', ''].includes(answer.toLowerCase())) {
         fs.writeFileSync(path.join(__dirname, '../config.json'), json.strip)
         console.log('File written sucessfully, exiting.'.green)
@@ -127,17 +142,29 @@ function handleField(configElement) {
   const help = configElement.prompt
   const helpForType = howToAnswer[configElement.type] || ''
 
-  const punctuation = configElement.type === 'boolean' ? '?' : ':'
+  const punctuation = punctuationForTypes[configElement.type] || ':'
 
   const defaultValue = (unmapTypes[configElement.type] || (s => s))(defaults[configElement.field])
-  const coloredDefault = defaultValue !== '' ? defaultValue.green : '(empty)'.red
+  
+  const text = generateQuestion(help, helpForType, punctuation, defaultValue)
 
-  const text = help.blue + `${punctuation} (default is ${coloredDefault}) ${helpForType.inverse} `.replace(/ +/, ' ')
-
-  recursiveQuestion(text, s => !s || validator, answer => {
+  recursiveQuestion(text, s => !s || validator(s), answer => {
     config[configElement.field] = answer ? mapper(answer) : defaults[configElement.field]
     handleField(CONFIG_FIELDS.shift())
   })
+}
+
+/**
+ * Generate a coloured question
+ *
+ * @param {string} prompt - The question to ask the user
+ * @param {string} typeHelp - Help the user understand how to enter a valid member of the type
+ * @param {string} punctuation - The punctuation to be used directly after the prompt
+ * @param {string} defaultValue - The value that is considered the default
+ */
+function generateQuestion(prompt, typeHelp, punctuation, defaultValue) {
+  const coloredDefault = defaultValue === '' ? '(empty)'.red : defaultValue.green
+  return prompt.blue + `${punctuation} (default is ${coloredDefault}) ${typeHelp.inverse} `.replace(/ +/, ' ')
 }
 
 /**
