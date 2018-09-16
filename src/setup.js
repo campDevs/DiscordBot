@@ -118,7 +118,7 @@ function handleField(configElement) {
     const json = jsonToString(config)
     console.log(json)
     const question = generateQuestion('Save file locally', '(y/n)', '?', 'yes')
-    recursiveQuestion(question, validateTypes.boolean, answer => {
+    keepAsking(question, validateTypes.boolean, answer => {
       if(['y', 'yes', ''].includes(answer.toLowerCase())) {
         fs.writeFileSync(path.join(__dirname, '../config.json'), json.strip)
         console.log('File written sucessfully, exiting.'.green)
@@ -148,7 +148,7 @@ function handleField(configElement) {
   
   const text = generateQuestion(help, helpForType, punctuation, defaultValue)
 
-  recursiveQuestion(text, validator, answer => {
+  keepAsking(text, validator, answer => {
     config[configElement.field] = answer ? mapper(answer) : defaults[configElement.field]
     handleField(CONFIG_FIELDS.shift())
   })
@@ -175,12 +175,12 @@ function generateQuestion(prompt, typeHelp, punctuation, defaultValue) {
  * @param {function} conditionFunction - The function to determine whether to stop prompting the user
  * @param {function} cb - The callback to invoke when conditionFunction returns true
  */
-function recursiveQuestion(arg, conditionFunction, cb) {
+function keepAsking(arg, conditionFunction, cb) {
   rl.question(arg, answer => {
     if(!answer || conditionFunction(answer)) {
       cb(answer)
     } else {
-      recursiveQuestion(...arguments)
+      keepAsking(...arguments)
     }
   })
 }
