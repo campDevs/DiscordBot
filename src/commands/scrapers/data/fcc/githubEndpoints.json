@@ -1,0 +1,57 @@
+{
+    "01-responsive-web-design": [
+        "applied-accessibility",
+        "applied-visual-design",
+        "basic-css",
+        "basic-html-and-html5",
+        "css-flexbox",
+        "css-grid",
+        "responsive-web-design-projects",
+        "responsive-web-design"
+    ],
+    "02-javascript-algorithms-and-data-structures": [
+        "basic-algorithm-scripting",
+        "basic-data-structures",
+        "basic-javascript",
+        "debugging",
+        "es6",
+        "functional-programming",
+        "intermediate-algorithm-scripting",
+        "javascript-algorithms-and-data-structures-projects",
+        "object-oriented-programming",
+        "regular-expressions"
+    ],
+    "03-front-end-libraries": [
+        "bootstrap",
+        "front-end-libraries-projects",
+        "jquery",
+        "react-and-redux",
+        "react",
+        "redux",
+        "sass"
+    ],
+    "04-data-visualization": [
+        "data-visualization-projects",
+        "data-visualization-with-d3",
+        "json-apis-and-ajax"
+    ],
+    "05-apis-and-microservices": [
+        "apis-and-microservices-projects",
+        "basic-node-and-express",
+        "managing-packages-with-npm",
+        "mongodb-and-mongoose"
+    ],
+    "06-information-security-and-quality-assurance": [
+        "advanced-express-tools",
+        "helmetjs",
+        "quality-assurance-and-information-security-projects",
+        "testing-with-chai"
+    ],
+    "08-coding-interview-prep": [
+        "algorithms",
+        "data-structures",        
+        "project-euler",
+        "rosetta-code",
+        "take-home-projects"
+    ]
+}

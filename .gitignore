@@ -63,3 +63,6 @@ typings/
 # config file
 config.json
 src/config.json
+
+# generated fcc curriculum data file
+src/commands/scrapers/data/fcc/challengeData.json

@@ -4,6 +4,7 @@ const logger = require('./utils/logging.js')
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
 const config = require('./defaults.json')
+const fetch = require("node-fetch")
 
 // Check for config.json and override defaults
 if (file.existsSync(path.join(__dirname, '../config.json'))) {
@@ -44,9 +45,9 @@ client.on('ready', () => {
    .-"-.
   |  ___|
   | (.\\/.)
-  |  ,,,' 
+  |  ,,,'
   | '###
-  '----'  
+  '----'
   Connected as: ${client.user.tag}!`)
   client.user.setActivity("Bot Stuff")
 })
@@ -82,3 +83,30 @@ client.on('guildBanAdd', (guild, user) => {
 })
 
 client.login(process.env.TOKEN)
+
+// create or check for fcc curriculum json file
+async function getCurriculum() {
+  if (file.existsSync('src/commands/scrapers/data/fcc/challengeData.json')) {
+    return
+  }
+
+  let data = []
+  const githubURI = 'https://raw.githubusercontent.com/freeCodeCamp/curriculum/dev/challenges'
+  try {
+    const githubEndpoints = JSON.parse(file.readFileSync('src/commands/scrapers/data/fcc/githubEndpoints.json'))
+    for (let majorCategory in githubEndpoints) {
+      for (let minorCategory of githubEndpoints[majorCategory]) {
+        const githubRes = await fetch(`${githubURI}/${majorCategory}/${minorCategory}.json`)
+        const githubData = await githubRes.json()
+        data.push(githubData)
+      }
+    }
+    file.writeFile('src/commands/scrapers/data/fcc/challengeData.json', JSON.stringify(data), err => {
+      if (err) throw err
+    })
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+getCurriculum()
