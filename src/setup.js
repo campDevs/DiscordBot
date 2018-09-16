@@ -148,7 +148,7 @@ function handleField(configElement) {
   
   const text = generateQuestion(help, helpForType, punctuation, defaultValue)
 
-  recursiveQuestion(text, s => !s || validator(s), answer => {
+  recursiveQuestion(text, validator, answer => {
     config[configElement.field] = answer ? mapper(answer) : defaults[configElement.field]
     handleField(CONFIG_FIELDS.shift())
   })
@@ -177,7 +177,7 @@ function generateQuestion(prompt, typeHelp, punctuation, defaultValue) {
  */
 function recursiveQuestion(arg, conditionFunction, cb) {
   rl.question(arg, answer => {
-    if(conditionFunction(answer)) {
+    if(!answer || conditionFunction(answer)) {
       cb(answer)
     } else {
       recursiveQuestion(...arguments)
