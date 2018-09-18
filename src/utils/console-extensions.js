@@ -3,7 +3,7 @@ const { red, green, yellow } = require('chalk');
 console.red =
   console.red ||
   function(message) {
-    console.log(red(message));
+    console.error(red(message));
   };
 
 console.green =
@@ -15,5 +15,5 @@ console.green =
 console.yellow =
   console.yellow ||
   function(message) {
-    console.log(yellow(message));
+    console.warn(yellow(message));
   };

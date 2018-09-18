@@ -3,8 +3,9 @@ require('./src/utils/console-extensions');
 const { join } = require('path');
 const { config } = require('dotenv');
 const { exists } = require('fs-extra');
+const ValidationMessages = require('./validate-env-messages.json');
 
-const REQUIRED_DOT_ENV_PROPS = ['TOKEN', 'MONGO_CONN_STR'];
+const REQUIRED_DOT_ENV_PROPS = ['TOKEN'];
 
 function checkIfDotEnvExists() {
   const dotEnvFilePath = join(__dirname, '.env');
@@ -27,8 +28,23 @@ function validateDotEnvFile() {
       }
     });
 
+    const missingRecommendedProperties = Object.keys(ValidationMessages).reduce(
+      (missing, current) => {
+        const dotEnvProperty = process.env[current];
+        if (typeof dotEnvProperty === 'undefined' || !dotEnvProperty) {
+          missing.push(' - ' + current + ':: ' + ValidationMessages[current]);
+        }
+        return missing;
+      },
+      []
+    );
+
     missingProperties.length === 0
-      ? resolve()
+      ? resolve(
+          missingRecommendedProperties.length
+            ? missingRecommendedProperties
+            : []
+        )
       : reject({
           message:
             'Please add these valid properties to your .env file - ' +
@@ -37,13 +53,20 @@ function validateDotEnvFile() {
   });
 }
 
-function allGood() {
+function allGood(props) {
+  if (props.length) {
+    console.yellow(
+      `Some of the recommended properties are not provided in .env file`
+    );
+    console.yellow(props.join('\n'));
+  }
+
   console.green('All good... Attempting to spawn the bot');
 }
 
 function somethingsWrong(error) {
   console.red(error.message + '\n');
-  // exit process with error code 1 to make sure the subsequent start task invocation is prevetend
+  // exit process with error code 1 to make sure the subsequent start task invocation is prevented
   process.exit(1);
 }
 
