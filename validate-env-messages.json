@@ -1,0 +1,3 @@
+{
+    "MONGO_CONN_STR": "Not providing this property in .env will prevent you from using MongoDb features"
+}
