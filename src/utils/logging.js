@@ -1,4 +1,5 @@
 const colors = require('colors/safe')
+const { red, green, yellow } = require('chalk')
 
 colors.setTheme({
   warn: "yellow",
@@ -8,6 +9,22 @@ colors.setTheme({
   data: "grey",
   help: "magenta"
 })
+
+console.red =
+  console.red ||
+  function(message) {
+    console.error(red(message))
+  }
+console.green =
+  console.green ||
+  function(message) {
+    console.log(green(message))
+  }
+console.yellow =
+  console.yellow ||
+  function(message) {
+    console.warn(yellow(message))
+  }
 
 module.exports = {
   log: (...parameters) => console.log(colors.data(parameters.join(' '))),

@@ -1,4 +1,4 @@
-require('./src/utils/console-extensions')
+require('./src/utils/logging')
 const { join } = require('path')
 const { config } = require('dotenv')
 const { exists } = require('fs-extra')

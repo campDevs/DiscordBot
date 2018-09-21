@@ -1,5 +1,4 @@
 require('dotenv').config()
-require('./utils/console-extensions')
 const file = require('fs')
 const logger = require('./utils/logging.js')
 const { CommandoClient } = require('discord.js-commando')
