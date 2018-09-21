@@ -66,6 +66,3 @@ src/config.json
 
 # generated fcc curriculum data file
 src/commands/scrapers/data/fcc/challengeData.json
-
-# editor specific settings
-.vscode
