@@ -82,7 +82,9 @@ client.on('guildBanAdd', (guild, user) => {
   sendMsgToAuditChannel(guild, `${user.username} was banned.`)
 })
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN).catch(error => {
+  console.red(error + '\n')
+})
 
 // create or check for fcc curriculum json file
 async function getCurriculum() {
