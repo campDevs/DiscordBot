@@ -1,5 +1,4 @@
-const {Command} = require('discord.js-commando')
-const cheerio = require('cheerio')
+const { Command } = require('discord.js-commando')
 const fetch = require("node-fetch")
 const file = require('fs')
 
@@ -29,7 +28,7 @@ module.exports = class FCCCommand extends Command {
   //   return this.client.isOwner(msg.author)
   // }
 
-  async run(msg, {challengeName}) {
+  async run(msg, { challengeName }) {
     let defaultMessage = {
       title: ':(',
       description: `Unable to find a matching challenge with ${challengeName}`,
