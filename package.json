@@ -6,7 +6,17 @@
   "scripts": {
     "prestart": "node ./validate-env",
     "start": "node src/bot.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged",
+    "prettier-full": "prettier --write \"**/*.js\"",
+    "eslint-full": "eslint --fix ."
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -31,6 +41,16 @@
     "ytdl-core": "^0.20.2"
   },
   "devDependencies": {
-    "fs-extra": "^7.0.0"
+    "eslint": "5.6.1",
+    "eslint-config-common": "3.0.1",
+    "eslint-config-prettier": "3.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-node": "7.0.1",
+    "eslint-plugin-promise": "4.0.1",
+    "eslint-plugin-standard": "4.0.0",
+    "fs-extra": "^7.0.0",
+    "husky": "1.1.1",
+    "lint-staged": "7.3.0",
+    "prettier": "1.14.3"
   }
 }
