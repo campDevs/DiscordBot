@@ -1,4 +1,5 @@
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/campDevs/DiscordBot.png?columns=all)](https://waffle.io/campDevs/DiscordBot?utm_source=badge)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 # Discord Bot
 
 > self-hosted modular bot
@@ -15,6 +16,7 @@ This project is a full featured, modular, JavaScript discord bot for freeCodeCam
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) for details on setup and contributing. 
 
+##Contributers
 Thanks to [all of our Contributors](https://github.com/campDevs/DiscordBot/contributors) for helping to develop this bot.
 
 
@@ -28,3 +30,15 @@ Note that glitch.com will sleep after inactivity and your bot will stop respondi
 ## License
 
 This repository is licensed under the [MIT License](https://github.com/campDevs/DiscordBot/blob/master/LICENSE). Copyright (c) 2018 campDevs Team & Contributors.
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars1.githubusercontent.com/u/1103591?v=4" width="100px;"/><br /><sub><b>Glen Westbrook</b></sub>](https://github.com/glynnw)<br />[💻](https://github.com/campDevs/DiscordBot/commits?author=glynnw "Code") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
