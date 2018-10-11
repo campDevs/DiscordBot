@@ -6,7 +6,9 @@
   "scripts": {
     "prestart": "node ./validate-env",
     "start": "node src/bot.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "ytdl-core": "^0.20.2"
   },
   "devDependencies": {
+    "all-contributors-cli": "^5.4.0",
     "fs-extra": "^7.0.0"
   }
 }
