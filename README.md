@@ -1,5 +1,5 @@
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/campDevs/DiscordBot.png?columns=all)](https://waffle.io/campDevs/DiscordBot?utm_source=badge)
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 # Discord Bot
 
 > self-hosted modular bot
@@ -37,8 +37,8 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars1.githubusercontent.com/u/1103591?v=4" width="100px;"/><br /><sub><b>Glen Westbrook</b></sub>](https://github.com/glynnw)<br />[💻](https://github.com/campDevs/DiscordBot/commits?author=glynnw "Code") | [<img src="https://avatars0.githubusercontent.com/u/38302762?v=4" width="100px;"/><br /><sub><b>Jody LeCompte</b></sub>](https://jodylecompte.com)<br />[💻](https://github.com/campDevs/DiscordBot/commits?author=jodylecompte "Code") | [<img src="https://avatars0.githubusercontent.com/u/18113170?v=4" width="100px;"/><br /><sub><b>jokebookservice1</b></sub>](https://scratch.mit.edu/users/jokebookservice1/)<br />[💻](https://github.com/campDevs/DiscordBot/commits?author=joker314 "Code") |
-| :---: | :---: | :---: |
+| [<img src="https://avatars1.githubusercontent.com/u/1103591?v=4" width="100px;"/><br /><sub><b>Glen Westbrook</b></sub>](https://github.com/glynnw)<br />[💻](https://github.com/campDevs/DiscordBot/commits?author=glynnw "Code") | [<img src="https://avatars0.githubusercontent.com/u/38302762?v=4" width="100px;"/><br /><sub><b>Jody LeCompte</b></sub>](https://jodylecompte.com)<br />[💻](https://github.com/campDevs/DiscordBot/commits?author=jodylecompte "Code") | [<img src="https://avatars0.githubusercontent.com/u/18113170?v=4" width="100px;"/><br /><sub><b>jokebookservice1</b></sub>](https://scratch.mit.edu/users/jokebookservice1/)<br />[💻](https://github.com/campDevs/DiscordBot/commits?author=joker314 "Code") | [<img src="https://avatars1.githubusercontent.com/u/11909710?v=4" width="100px;"/><br /><sub><b>pahosler</b></sub>](https://github.com/pahosler)<br />[💻](https://github.com/campDevs/DiscordBot/commits?author=pahosler "Code") |
+| :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
