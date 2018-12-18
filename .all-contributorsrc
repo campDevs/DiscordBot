@@ -1,0 +1,121 @@
+{
+  "projectName": "DiscordBot",
+  "projectOwner": "campDevs",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "glynnw",
+      "name": "Glen Westbrook",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1103591?v=4",
+      "profile": "https://github.com/glynnw",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "jodylecompte",
+      "name": "Jody LeCompte",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/38302762?v=4",
+      "profile": "https://jodylecompte.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "joker314",
+      "name": "jokebookservice1",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/18113170?v=4",
+      "profile": "https://github.com/joker314",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "pahosler",
+      "name": "pahosler",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/11909710?v=4",
+      "profile": "https://github.com/pahosler",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Azbo400",
+      "name": "Ryan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/12162628?v=4",
+      "profile": "http://azbo400.github.io",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "adityaparab",
+      "name": "Darth Skywalker",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5561498?v=4",
+      "profile": "https://github.com/adityaparab",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "rricheydev",
+      "name": "Robert Richey",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/37130288?v=4",
+      "profile": "https://github.com/rricheydev",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "beatriceo",
+      "name": "Beatrice Olivera",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/31216493?v=4",
+      "profile": "https://github.com/beatriceo",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Septimus",
+      "name": "Wesley McCann",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1158013?v=4",
+      "profile": "https://github.com/Septimus",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "jdraiv",
+      "name": "Jdraiv",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17892416?v=4",
+      "profile": "https://jdraiv.herokuapp.com/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "htjjen",
+      "name": "htjjen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/23342474?v=4",
+      "profile": "https://github.com/htjjen",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "eritscher",
+      "name": "Evan Ritscher",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/37910116?v=4",
+      "profile": "https://github.com/eritscher",
+      "contributions": [
+        "code"
+      ]
+    }
+  ]
+}
