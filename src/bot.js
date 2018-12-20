@@ -48,8 +48,7 @@ client.on('ready', () => {
   |  ,,,'
   | '###
   '----'
-  Connected as: ${client.user.tag}!`);
-  client.user.setActivity('Bot Stuff');
+  Connected as: ${client.user.tag}!`)
 });
 
 // React randomly to other bots
