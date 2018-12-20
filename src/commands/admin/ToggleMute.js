@@ -1,41 +1,41 @@
-const {Command} = require('discord.js-commando')
+const { Command } = require('discord.js-commando');
 
 module.exports = class MuteCommand extends Command {
   constructor(client) {
     super(client, {
-      name: "togglemute",
-      group: "admin",
-      memberName: "togglemute",
-      description: "Toggles member muted or unmuted on voice channels",
+      name: 'togglemute',
+      group: 'admin',
+      memberName: 'togglemute',
+      description: 'Toggles member muted or unmuted on voice channels',
       examples: [
-        "togglemute @MicSpammer",
-        "togglemute @MicSpammer Singing endlessly"
+        'togglemute @MicSpammer',
+        'togglemute @MicSpammer Singing endlessly',
       ],
       args: [
         {
-          key: "member",
-          prompt: "Who do you want to toggle muted/unmuted?",
-          type: "member"
+          key: 'member',
+          prompt: 'Who do you want to toggle muted/unmuted?',
+          type: 'member',
         },
         {
-          key: "reason",
-          prompt: "Why do you want to mute/unmute them?",
-          type: "string",
-          default: "'None provided'"
-        }
+          key: 'reason',
+          prompt: 'Why do you want to mute/unmute them?',
+          type: 'string',
+          default: "'None provided'",
+        },
       ],
-      clientPermissions: ["MUTE_MEMBERS"],
-      userPermissions: ["MUTE_MEMBERS"]
-    })
+      clientPermissions: ['MUTE_MEMBERS'],
+      userPermissions: ['MUTE_MEMBERS'],
+    });
   }
 
-  run(msg, {member, reason}) {
+  run(msg, { member, reason }) {
     if (member.serverMute) {
-      member.setMute(false, reason)
-      msg.reply(`${member} was unmuted.`)
+      member.setMute(false, reason);
+      msg.reply(`${member} was unmuted.`);
     } else {
-      member.setMute(true, reason)
-      msg.reply(`${member} was muted.`)
+      member.setMute(true, reason);
+      msg.reply(`${member} was muted.`);
     }
   }
-}
+};

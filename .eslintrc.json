@@ -1,0 +1,29 @@
+{
+  "plugins": [
+    "prettier",
+    "unicorn",
+    "import",
+    "node",
+    "promise"
+  ],
+  "parserOptions": {
+      "ecmaVersion": 2019,
+      "sourceType": "script"
+  },
+  "env": {
+      "node": true,
+      "es6": true
+  },
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:unicorn/recommended",
+    "plugin:import/recommended",
+    "plugin:node/recommended",
+    "plugin:promise/recommended",
+    "prettier",
+    "prettier/unicorn"
+  ]
+}
