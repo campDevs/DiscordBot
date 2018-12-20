@@ -8,7 +8,16 @@
     "start": "node src/bot.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "contributors:generate": "all-contributors generate",
+    "precommit": "lint-staged",
+    "lint": "eslint .; exit 0",
+    "fix": "eslint --fix .; exit 0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -34,6 +43,17 @@
   },
   "devDependencies": {
     "all-contributors-cli": "^5.4.0",
-    "fs-extra": "^7.0.0"
+    "fs-extra": "^7.0.0",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "7.0.1",
+    "eslint-plugin-promise": "4.0.1",
+    "eslint-plugin-unicorn": "^6.0.1",
+    "husky": "1.1.1",
+    "lint-staged": "7.3.0",
+    "prettier": "1.14.3"
   }
 }

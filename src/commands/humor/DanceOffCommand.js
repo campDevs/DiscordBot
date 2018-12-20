@@ -1,24 +1,26 @@
-const {Command} = require('discord.js-commando')
+const { Command } = require('discord.js-commando');
 
 module.exports = class DanceOffCommand extends Command {
   constructor(client) {
     super(client, {
-      name: "danceoff",
-      group: "humor",
-      memberName: "danceoff",
-      description: "Dance-off"
-    })
+      name: 'danceoff',
+      group: 'humor',
+      memberName: 'danceoff',
+      description: 'Dance-off',
+    });
   }
 
   run(msg) {
     return msg.embed({
-      title: "Robot Danceoff",
+      title: 'Robot Danceoff',
       color: 0xf442ce,
-      author: { name: this.client.user.username, icon_url: this.client.user.avatarURL },
+      author: {
+        name: this.client.user.username,
+        icon_url: this.client.user.avatarURL,
+      },
       image: {
-        url: "http://i.imgur.com/wDgO8up.gif"
-      }
-    })
+        url: 'http://i.imgur.com/wDgO8up.gif',
+      },
+    });
   }
-}
-
+};
