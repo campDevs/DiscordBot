@@ -20,6 +20,7 @@
 +  **assistants**
    +  [lmgtfy](#lmgtfy)
    +  [issue](#issue)
+   +  [role](#role)
 +  **code**
    +  [format](#format)
 +  **fetch**
@@ -119,8 +120,15 @@ _examples_
 +  issue Add better memes
 +  issue Add better memes // Let's add better meme support. For example, none of the memes are memes.
 
-
 [Source](https://github.com/campDevs/DiscordBot/blob/master/src/commands/assistants/Issue.js) 
+### role
+Description: (Un)assign roles to yourself
+
+_examples_
++ role remove USA
++ role add she/her
+
+[Source](https://github.com/campDevs/DiscordBot/blob/master/src/commands/assistants/Roles.js)
 ### format   
 Description: Formats code in the provided language  
 

@@ -1,0 +1,5 @@
+[
+  {"aliases": ["he", "his", "him"], "roleName": "he/him"},
+  {"aliases": ["she", "her", "hers"], "roleName": "she/her"},
+  {"aliases": ["they", "their", "theirs", "them"], "roleName": "they/them"}
+]
