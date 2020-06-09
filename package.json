@@ -11,7 +11,9 @@
     "contributors:generate": "all-contributors generate",
     "precommit": "lint-staged",
     "lint": "eslint .; exit 0",
-    "fix": "eslint --fix .; exit 0"
+    "fix": "eslint --fix .; exit 0",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "lint-staged": {
     "*.js": [
@@ -39,7 +41,8 @@
     "ffmpeg-binaries": "^3.2.2",
     "node-fetch": "^2.3.0",
     "node-opus": "^0.2.7",
-    "ytdl-core": "^0.20.4"
+    "ytdl-core": "^0.20.4",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "all-contributors-cli": "^5.11.0",
@@ -55,5 +58,6 @@
     "husky": "1.1.1",
     "lint-staged": "7.3.0",
     "prettier": "1.14.3"
-  }
+  },
+  "snyk": true
 }
