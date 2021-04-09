@@ -1,6 +1,6 @@
 {
   "prefix": "+",
   "owners": [""],
-  "adminTransparency": "true",
+  "adminTransparency": true,
   "auditChannel": "moderation"
 }
