@@ -42,7 +42,7 @@
     "node-fetch": "^2.3.0",
     "node-opus": "^0.2.7",
     "ytdl-core": "^0.20.4",
-    "snyk": "^1.336.0"
+    "snyk": "^1.996.0"
   },
   "devDependencies": {
     "all-contributors-cli": "^5.11.0",
